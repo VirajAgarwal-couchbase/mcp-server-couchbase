@@ -39,6 +39,7 @@ from .kv import (
     insert_document_by_id,
     replace_document_by_id,
     sub_document_lookup_in,
+    sub_document_mutate_in,
     upsert_document_by_id,
 )
 
@@ -103,6 +104,7 @@ KV_WRITE_TOOLS = [
     insert_document_by_id,
     replace_document_by_id,
     delete_document_by_id,
+    sub_document_mutate_in,
 ]
 
 # Scope/collection management write tools - disabled when READ_ONLY_MODE is True
@@ -158,6 +160,7 @@ TOOL_ANNOTATIONS: dict[str, ToolAnnotations] = {
     "insert_document_by_id": ToolAnnotations(idempotentHint=True),
     "replace_document_by_id": ToolAnnotations(idempotentHint=True),
     "delete_document_by_id": ToolAnnotations(destructiveHint=True, idempotentHint=True),
+    "sub_document_mutate_in": ToolAnnotations(destructiveHint=True),
     # Scope/collection management write tools
     "create_scope": ToolAnnotations(),
     "create_collection": ToolAnnotations(),
@@ -197,6 +200,7 @@ __all__ = [
     "get_buckets_in_cluster",
     "get_document_by_id",
     "sub_document_lookup_in",
+    "sub_document_mutate_in",
     "upsert_document_by_id",
     "insert_document_by_id",
     "replace_document_by_id",
