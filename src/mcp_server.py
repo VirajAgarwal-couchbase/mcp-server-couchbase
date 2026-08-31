@@ -84,7 +84,7 @@ logger = logging.getLogger(MCP_SERVER_NAME)
     envvar="CB_MCP_READ_ONLY_MODE",
     type=bool,
     default=DEFAULT_READ_ONLY_MODE,
-    help="Enable read-only mode. When True, all write operations (KV and Query) are disabled and KV write tools are not loaded. Set to False to enable write operations.",
+    help="Enable read-only mode. When True, all write operations (KV, Query, scope/collection management, and index management) are disabled and KV, collection management, and index write tools are not loaded. Set to False to enable write operations.",
 )
 @click.option(
     "--transport",
